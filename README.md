@@ -3,7 +3,7 @@ tvShowsOrganizer
 
 Little script I use to keep organized tv Series episode, this is run once a day as a cronjob
 
-TODO:
+*TODOs*:
 - refactor the python project structure
 - go multiplatform (macOs and Linux first, then Windows)
 - autodownload subtitles: by third party script or custom script
