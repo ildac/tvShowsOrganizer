@@ -53,7 +53,7 @@ class episode:
         if self.okToCopy(ori_path, dest_path):
             shutil.move(ori_path+self.file_name, dest_path)
            # setColorLabel('yellow', libraryPath+e.getSerie())
-        else:
+        # else:
            # setColorLabel('red', ori_path+'/'+self.file_name)
 
 
