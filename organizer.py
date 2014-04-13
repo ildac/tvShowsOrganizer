@@ -29,7 +29,7 @@ class episode:
 ##Check path is ok, here is where i've to add the check for file
     def okToCopy(self, origin, destination):
         self.destination = destination    #normalize path
-        self.origin = origin		#normalize path
+        self.origin = origin        #normalize path
         if not os.path.exists(self.destination):    #check if path exist
             try:
                 os.makedirs(self.destination)
