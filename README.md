@@ -5,6 +5,7 @@ Little script I use to keep organized tv Series episode, this is run once a day 
 
 *TODOs*:
 - refactor the python project structure
+- add a check if the destination disk as no more space left
 - go multiplatform (macOs and Linux first, then Windows)
 - autodownload subtitles: by third party script or custom script
 - autodownload torrent file from the internet (using showrss.info personalized feed)
