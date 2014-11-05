@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 ## This was created by Marco Da Col.
-## Project started in 11/2011
-## Version 0.2.5
-## Last Update 03-11-2012
+## Project started in 01-11-2011
+## Version 0.3
+## Last Update 05-11-2014
 
 #-----LIBRARY IMPORT--
 import dircache
@@ -52,8 +52,10 @@ class episode:
     def doCopy(self, ori_path, dest_path):
         if self.okToCopy(ori_path, dest_path):
             shutil.move(ori_path+self.file_name, dest_path)
+            print 'Copied: ' + self.file_name
            # setColorLabel('yellow', libraryPath+e.getSerie())
-        # else:
+        else:
+            print 'Already in the directory: ' + self.file_name
            # setColorLabel('red', ori_path+'/'+self.file_name)
 
 
@@ -112,21 +114,10 @@ def shellquote(s):
     return "'" + s.replace("'", "'\\''") + "'"
 
 #-----MAIN-----------
-#initialize the configuration option
-#config=ConfigParser.ConfigParser()
-#config.read("config.cfg")
-
-#downloadPath=config.get('directorySetup', downloadPath, 1)
-#libraryPath=config.get('directorySetup', completePath, 1)
-
-#downloadPath='/Users/marco/Documents/Labs/Python/do-it-for-me/testfolder/download/'
-#libraryPath='/Users/marco/Documents/Labs/Python/do-it-for-me/testfolder/storage/'
-
-#downloadPath='/Users/marco/Dropbox/torrent/complete/'
-#libraryPath='/Volumes/Candy/Telefilm/'
-
-downloadPath='/dac/Downloads/torrents/'
-libraryPath='/media/candy/Telefilm/'
+# initialize the configuration option
+# Set here your path:
+downloadPath='/Users/dac/Downloads/uTorrent/complete/'
+libraryPath='/Volumes/Candy/Telefilm/'
 
 #this is an ls on donwload folder
 dir = dircache.listdir(downloadPath)
@@ -134,7 +125,7 @@ dir = dircache.listdir(downloadPath)
 i=0
 
 for file in dir:
-    if (file[-4:]=='.avi') or (file[-4:]=='.mp4') or (file[-4]=='.3gp'):
+    if (file[-4:]=='.avi') or (file[-4:]=='.mp4') or (file[-4:]=='.3gp') or (file[-4:]=='.srt'):
         #TODO Optimizing the REGEX, future optimization
         data = re.match('([A-Z,a-z,\.,201\d{1}]+(?=[s,S][0-9]{2}))([s,S][0-9]{2})([e,E][0-9]{2})', file)
         e = episode(data.group(1), data.group(2), data.group(3), file)
